@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static '/blog/index.css' %}">
+    <link rel="stylesheet" href="{% static '/blog/post.css' %}">
+{% endblock css_files %}
+
+{% block page_title %}
+    Наш блог
+{% endblock page_title %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/we.jpg' %}" alt="Ромикс и Ирикс - авторы блога" />
+            <h2>Блог Сергеевых</h2>
+        </header>
+        <p>Привет, Мы Роман и Ирина, мы любим покушать!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>Наши последние посещённые места</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include 'blog/includes/post.html' %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>Что мы делаем?</h2>
+        <p>
+            Мы любим покушать, посмотреть сериалы, обниматься!
+        </p>
+        <p>
+            Наша цель купить квартиру в СПб!
+        </p>
+    </section>
+{% endblock content %}
